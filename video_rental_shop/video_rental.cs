@@ -12,10 +12,10 @@ namespace video_rental_shop
 {
     public partial class video_rental : Form
     {
-        Database Obj_Data = new Database();
-        public video_rental()
-    public partial class video_rental : Form
-        {
+        Database obj_Data = new Database();
+        
+   // public partial class video_rental : Form
+     //   {
             public video_rental()
             {
                 InitializeComponent();
@@ -28,11 +28,11 @@ namespace video_rental_shop
 
             public void Customer_Load()
             {
-                DGV_Customer.DataSource = null;
+                customer_data.DataSource = null;
                 try
                 {
-                    DGV_Customer.DataSource = Obj_Data.FillCustomer_Data();
-                    DGV_Customer.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                customer_data.DataSource = obj_Data.FillCustomer_Data();
+                customer_data.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 }
                 catch (Exception ex)
                 {
@@ -42,11 +42,11 @@ namespace video_rental_shop
 
             public void Movies_Load()
             {
-                DGV_Movie.DataSource = null;
+                movie_data.DataSource = null;
                 try
                 {
-                    DGV_Movie.DataSource = Obj_Data.FillMovies_Data();
-                    DGV_Movie.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                movie_data.DataSource = obj_Data.FillMovies_Data();
+                movie_data.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 }
                 catch (Exception ex)
                 {
@@ -56,17 +56,32 @@ namespace video_rental_shop
 
             public void Rental_Load()
             {
-                DGV_Rental.DataSource = null;
+                rented_data.DataSource = null;
                 try
                 {
-                    DGV_Rental.DataSource = Obj_Data.FillRental_Data();
-                    DGV_Rental.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                rented_data.DataSource = obj_Data.FillRental_Data();
+                rented_data.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
             }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
-}
+    }
+
