@@ -15,6 +15,7 @@ namespace video_rental_shop
         private SqlDataReader Data_Reader;
         private SqlDataAdapter da = new SqlDataAdapter();
         string QueryString;
+        public int CustomerID, MovieID;
         public database_class()
         {
             string ConnString = @"Data Source=DESKTOP-HL11OFI\SQLEXPRESS;Initial Catalog=video_rental_shop;Integrated Security=True";
@@ -88,6 +89,105 @@ namespace video_rental_shop
                 }
             }
         }
+        public string CustomerUpdate(string FName, string LName, string Mobile, string Address)
+        {
+            try
+            {
+                Cmd.Parameters.Clear();
+                Cmd.Connection = Obj_Conn;
+                QueryString = "Insert into Customer(FirstName,LastName,Address, Phone) Values(@FirstName,@LastName,@Address, @Mobile)";
+                Cmd.Parameters.AddWithValue("@FirstName", FName);
+                Cmd.Parameters.AddWithValue("@LastName", LName);
+                Cmd.Parameters.AddWithValue("@Address", Address);
+                Cmd.Parameters.AddWithValue("@Mobile", Mobile);
+                Cmd.CommandText = QueryString;
+                //connection opened
+                Obj_Conn.Open();
+                // Executed query
+                Cmd.ExecuteNonQuery();
+                return "Customer Data updated Successfully";
+            }
+            catch (Exception ex)
+            {
+                // show error Message
+                return ex.Message;
+            }
+            finally
+            {
+                // close connection
+                if (Obj_Conn != null)
+                {
+                    Obj_Conn.Close();
+                }
+            }
+        }
+        public string CustomerDelete(string FName, string LName, string Mobile, string Address)
+        {
+            try
+            {
+                Cmd.Parameters.Clear();
+                Cmd.Connection = Obj_Conn;
+                QueryString = "Insert into Customer(FirstName,LastName,Address, Phone) Values(@FirstName,@LastName,@Address, @Mobile)";
+                Cmd.Parameters.AddWithValue("@FirstName", FName);
+                Cmd.Parameters.AddWithValue("@LastName", LName);
+                Cmd.Parameters.AddWithValue("@Address", Address);
+                Cmd.Parameters.AddWithValue("@Mobile", Mobile);
+                Cmd.CommandText = QueryString;
+                //connection opened
+                Obj_Conn.Open();
+                // Executed query
+                Cmd.ExecuteNonQuery();
+                return "Customer Data Deleteted Successfully";
+            }
+            catch (Exception ex)
+            {
+                // show error Message
+                return ex.Message;
+            }
+            finally
+            {
+                // close connection
+                if (Obj_Conn != null)
+                {
+                    Obj_Conn.Close();
+                }
+            }
+        }
+
+        public string MoviesInsert(string FName, string LName, string Mobile, string Address)
+        {
+            try
+            {
+                Cmd.Parameters.Clear();
+                Cmd.Connection = Obj_Conn;
+                QueryString = "Insert into Movies(FirstName,LastName,Address, Phone) Values(@FirstName,@LastName,@Address, @Mobile)";
+                Cmd.Parameters.AddWithValue("@FirstName", FName);
+                Cmd.Parameters.AddWithValue("@LastName", LName);
+                Cmd.Parameters.AddWithValue("@Address", Address);
+                Cmd.Parameters.AddWithValue("@Mobile", Mobile);
+                Cmd.CommandText = QueryString;
+                //connection opened
+                Obj_Conn.Open();
+                // Executed query
+                Cmd.ExecuteNonQuery();
+                return "Movie infromation Inserted Successfully";
+            }
+            catch (Exception ex)
+            {
+                // show error Message
+                return ex.Message;
+            }
+            finally
+            {
+                // close connection
+                if (Obj_Conn != null)
+                {
+                    Obj_Conn.Close();
+                }
+            }
+        }
+
+
         public DataTable Fillrentedout_Data()
         {
             DataTable dt = new DataTable();

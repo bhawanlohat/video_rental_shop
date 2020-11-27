@@ -37,7 +37,9 @@
             this.rented_data = new System.Windows.Forms.DataGridView();
             this.rental_panel = new System.Windows.Forms.Panel();
             this.delete_rental = new System.Windows.Forms.Button();
+            this.Return = new System.Windows.Forms.Button();
             this.update_rental = new System.Windows.Forms.Button();
+            this.Issue = new System.Windows.Forms.Button();
             this.add_rental = new System.Windows.Forms.Button();
             this.rental_details = new System.Windows.Forms.Label();
             this.date_returned_text = new System.Windows.Forms.DateTimePicker();
@@ -62,16 +64,16 @@
             this.First_name_label = new System.Windows.Forms.Label();
             this.customer_details = new System.Windows.Forms.Label();
             this.movie_panel = new System.Windows.Forms.Panel();
-            this.Delete = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Delete_movie = new System.Windows.Forms.Button();
+            this.update_movie = new System.Windows.Forms.Button();
+            this.Add_movie = new System.Windows.Forms.Button();
+            this.genre = new System.Windows.Forms.TextBox();
+            this.plot = new System.Windows.Forms.TextBox();
+            this.copies = new System.Windows.Forms.TextBox();
+            this.rent_cost = new System.Windows.Forms.TextBox();
+            this.Year = new System.Windows.Forms.TextBox();
+            this.Title = new System.Windows.Forms.TextBox();
+            this.rating = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -126,6 +128,7 @@
             this.customer_data.RowTemplate.Height = 24;
             this.customer_data.Size = new System.Drawing.Size(554, 230);
             this.customer_data.TabIndex = 0;
+            this.customer_data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customer_data_CellContentClick);
             // 
             // Movies_detail
             // 
@@ -174,9 +177,10 @@
             // rental_panel
             // 
             this.rental_panel.BackColor = System.Drawing.Color.Tomato;
-            this.rental_panel.Controls.Add(this.Rented_out);
             this.rental_panel.Controls.Add(this.delete_rental);
+            this.rental_panel.Controls.Add(this.Return);
             this.rental_panel.Controls.Add(this.update_rental);
+            this.rental_panel.Controls.Add(this.Issue);
             this.rental_panel.Controls.Add(this.add_rental);
             this.rental_panel.Controls.Add(this.rental_details);
             this.rental_panel.Controls.Add(this.date_returned_text);
@@ -195,27 +199,45 @@
             // delete_rental
             // 
             this.delete_rental.BackColor = System.Drawing.Color.Aquamarine;
-            this.delete_rental.Location = new System.Drawing.Point(286, 288);
+            this.delete_rental.Location = new System.Drawing.Point(240, 288);
             this.delete_rental.Name = "delete_rental";
             this.delete_rental.Size = new System.Drawing.Size(95, 36);
             this.delete_rental.TabIndex = 14;
             this.delete_rental.Text = "Delete";
             this.delete_rental.UseVisualStyleBackColor = false;
             // 
+            // Return
+            // 
+            this.Return.Location = new System.Drawing.Point(438, 286);
+            this.Return.Name = "Return";
+            this.Return.Size = new System.Drawing.Size(75, 37);
+            this.Return.TabIndex = 6;
+            this.Return.Text = "Return";
+            this.Return.UseVisualStyleBackColor = true;
+            // 
             // update_rental
             // 
             this.update_rental.BackColor = System.Drawing.Color.Aquamarine;
-            this.update_rental.Location = new System.Drawing.Point(159, 288);
+            this.update_rental.Location = new System.Drawing.Point(127, 288);
             this.update_rental.Name = "update_rental";
             this.update_rental.Size = new System.Drawing.Size(98, 36);
             this.update_rental.TabIndex = 13;
             this.update_rental.Text = "Update";
             this.update_rental.UseVisualStyleBackColor = false;
             // 
+            // Issue
+            // 
+            this.Issue.Location = new System.Drawing.Point(357, 286);
+            this.Issue.Name = "Issue";
+            this.Issue.Size = new System.Drawing.Size(75, 38);
+            this.Issue.TabIndex = 5;
+            this.Issue.Text = "Issue";
+            this.Issue.UseVisualStyleBackColor = true;
+            // 
             // add_rental
             // 
             this.add_rental.BackColor = System.Drawing.Color.Aquamarine;
-            this.add_rental.Location = new System.Drawing.Point(31, 288);
+            this.add_rental.Location = new System.Drawing.Point(23, 288);
             this.add_rental.Name = "add_rental";
             this.add_rental.Size = new System.Drawing.Size(98, 36);
             this.add_rental.TabIndex = 12;
@@ -275,7 +297,6 @@
             this.customer_name_label.Size = new System.Drawing.Size(111, 18);
             this.customer_name_label.TabIndex = 6;
             this.customer_name_label.Text = "Customername";
-            this.customer_name_label.Click += new System.EventHandler(this.label2_Click);
             // 
             // movie_name_label
             // 
@@ -286,7 +307,6 @@
             this.movie_name_label.Size = new System.Drawing.Size(85, 18);
             this.movie_name_label.TabIndex = 5;
             this.movie_name_label.Text = "Moviename";
-            this.movie_name_label.Click += new System.EventHandler(this.label1_Click);
             // 
             // moviename_text
             // 
@@ -359,6 +379,7 @@
             this.delete_customer.TabIndex = 5;
             this.delete_customer.Text = "Delete";
             this.delete_customer.UseVisualStyleBackColor = false;
+            this.delete_customer.Click += new System.EventHandler(this.delete_customer_Click);
             // 
             // update_custmer
             // 
@@ -369,6 +390,7 @@
             this.update_custmer.TabIndex = 3;
             this.update_custmer.Text = "Update";
             this.update_custmer.UseVisualStyleBackColor = false;
+            this.update_custmer.Click += new System.EventHandler(this.update_custmer_Click);
             // 
             // add_customer
             // 
@@ -409,7 +431,6 @@
             this.last_name_label.Size = new System.Drawing.Size(77, 18);
             this.last_name_label.TabIndex = 3;
             this.last_name_label.Text = "Last name";
-            this.last_name_label.Click += new System.EventHandler(this.label3_Click);
             // 
             // First_name_label
             // 
@@ -434,16 +455,16 @@
             // movie_panel
             // 
             this.movie_panel.BackColor = System.Drawing.Color.Tomato;
-            this.movie_panel.Controls.Add(this.Delete);
-            this.movie_panel.Controls.Add(this.button2);
-            this.movie_panel.Controls.Add(this.button1);
-            this.movie_panel.Controls.Add(this.textBox7);
-            this.movie_panel.Controls.Add(this.textBox6);
-            this.movie_panel.Controls.Add(this.textBox5);
-            this.movie_panel.Controls.Add(this.textBox4);
-            this.movie_panel.Controls.Add(this.textBox3);
-            this.movie_panel.Controls.Add(this.textBox2);
-            this.movie_panel.Controls.Add(this.textBox1);
+            this.movie_panel.Controls.Add(this.Delete_movie);
+            this.movie_panel.Controls.Add(this.update_movie);
+            this.movie_panel.Controls.Add(this.Add_movie);
+            this.movie_panel.Controls.Add(this.genre);
+            this.movie_panel.Controls.Add(this.plot);
+            this.movie_panel.Controls.Add(this.copies);
+            this.movie_panel.Controls.Add(this.rent_cost);
+            this.movie_panel.Controls.Add(this.Year);
+            this.movie_panel.Controls.Add(this.Title);
+            this.movie_panel.Controls.Add(this.rating);
             this.movie_panel.Controls.Add(this.label7);
             this.movie_panel.Controls.Add(this.label6);
             this.movie_panel.Controls.Add(this.label5);
@@ -457,144 +478,145 @@
             this.movie_panel.Size = new System.Drawing.Size(554, 494);
             this.movie_panel.TabIndex = 3;
             // 
-            // Delete
+            // Delete_movie
             // 
-            this.Delete.Location = new System.Drawing.Point(405, 441);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(91, 32);
-            this.Delete.TabIndex = 16;
-            this.Delete.Text = "Delete";
-            this.Delete.UseVisualStyleBackColor = true;
+            this.Delete_movie.Location = new System.Drawing.Point(405, 441);
+            this.Delete_movie.Name = "Delete_movie";
+            this.Delete_movie.Size = new System.Drawing.Size(91, 32);
+            this.Delete_movie.TabIndex = 16;
+            this.Delete_movie.Text = "Delete";
+            this.Delete_movie.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // update_movie
             // 
-            this.button2.Location = new System.Drawing.Point(230, 441);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(72, 32);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "update";
-            this.button2.UseVisualStyleBackColor = true;
+            this.update_movie.Location = new System.Drawing.Point(230, 441);
+            this.update_movie.Name = "update_movie";
+            this.update_movie.Size = new System.Drawing.Size(72, 32);
+            this.update_movie.TabIndex = 15;
+            this.update_movie.Text = "update";
+            this.update_movie.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // Add_movie
             // 
-            this.button1.Location = new System.Drawing.Point(34, 441);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 32);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Add_movie.Location = new System.Drawing.Point(34, 441);
+            this.Add_movie.Name = "Add_movie";
+            this.Add_movie.Size = new System.Drawing.Size(91, 32);
+            this.Add_movie.TabIndex = 14;
+            this.Add_movie.Text = "Add";
+            this.Add_movie.UseVisualStyleBackColor = true;
+            this.Add_movie.Click += new System.EventHandler(this.Add_movie_Click);
             // 
-            // textBox7
+            // genre
             // 
-            this.textBox7.Location = new System.Drawing.Point(366, 386);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 22);
-            this.textBox7.TabIndex = 13;
+            this.genre.Location = new System.Drawing.Point(366, 386);
+            this.genre.Name = "genre";
+            this.genre.Size = new System.Drawing.Size(100, 22);
+            this.genre.TabIndex = 13;
             // 
-            // textBox6
+            // plot
             // 
-            this.textBox6.Location = new System.Drawing.Point(366, 331);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 22);
-            this.textBox6.TabIndex = 12;
+            this.plot.Location = new System.Drawing.Point(366, 331);
+            this.plot.Name = "plot";
+            this.plot.Size = new System.Drawing.Size(100, 22);
+            this.plot.TabIndex = 12;
             // 
-            // textBox5
+            // copies
             // 
-            this.textBox5.Location = new System.Drawing.Point(366, 280);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 22);
-            this.textBox5.TabIndex = 11;
+            this.copies.Location = new System.Drawing.Point(366, 280);
+            this.copies.Name = "copies";
+            this.copies.Size = new System.Drawing.Size(100, 22);
+            this.copies.TabIndex = 11;
             // 
-            // textBox4
+            // rent_cost
             // 
-            this.textBox4.Location = new System.Drawing.Point(366, 225);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 10;
+            this.rent_cost.Location = new System.Drawing.Point(366, 225);
+            this.rent_cost.Name = "rent_cost";
+            this.rent_cost.Size = new System.Drawing.Size(100, 22);
+            this.rent_cost.TabIndex = 10;
             // 
-            // textBox3
+            // Year
             // 
-            this.textBox3.Location = new System.Drawing.Point(366, 178);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 9;
+            this.Year.Location = new System.Drawing.Point(366, 178);
+            this.Year.Name = "Year";
+            this.Year.Size = new System.Drawing.Size(100, 22);
+            this.Year.TabIndex = 9;
             // 
-            // textBox2
+            // Title
             // 
-            this.textBox2.Location = new System.Drawing.Point(366, 119);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 8;
+            this.Title.Location = new System.Drawing.Point(366, 119);
+            this.Title.Name = "Title";
+            this.Title.Size = new System.Drawing.Size(100, 22);
+            this.Title.TabIndex = 8;
             // 
-            // textBox1
+            // rating
             // 
-            this.textBox1.Location = new System.Drawing.Point(366, 65);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 4;
+            this.rating.Location = new System.Drawing.Point(366, 65);
+            this.rating.Name = "rating";
+            this.rating.Size = new System.Drawing.Size(100, 22);
+            this.rating.TabIndex = 4;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(31, 391);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 17);
+            this.label7.Size = new System.Drawing.Size(48, 17);
             this.label7.TabIndex = 7;
-            this.label7.Text = "label7";
+            this.label7.Text = "Genre";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(31, 336);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 17);
+            this.label6.Size = new System.Drawing.Size(32, 17);
             this.label6.TabIndex = 6;
-            this.label6.Text = "label6";
+            this.label6.Text = "Plot";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(31, 285);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 17);
+            this.label5.Size = new System.Drawing.Size(51, 17);
             this.label5.TabIndex = 5;
-            this.label5.Text = "label5";
+            this.label5.Text = "Copies";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(31, 230);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 17);
+            this.label4.Size = new System.Drawing.Size(81, 17);
             this.label4.TabIndex = 4;
-            this.label4.Text = "label4";
+            this.label4.Text = "Rental Cost";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(31, 183);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
+            this.label3.Size = new System.Drawing.Size(38, 17);
             this.label3.TabIndex = 3;
-            this.label3.Text = "label3";
+            this.label3.Text = "Year";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(31, 124);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.Size = new System.Drawing.Size(35, 17);
             this.label2.TabIndex = 2;
-            this.label2.Text = "label2";
+            this.label2.Text = "Title";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(31, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.Size = new System.Drawing.Size(44, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.label1.Text = "rating";
             // 
             // movie_details
             // 
@@ -608,7 +630,7 @@
             // 
             // allrented
             // 
-            this.allrented.Location = new System.Drawing.Point(579, 254);
+            this.allrented.Location = new System.Drawing.Point(658, 768);
             this.allrented.Name = "allrented";
             this.allrented.Size = new System.Drawing.Size(123, 37);
             this.allrented.TabIndex = 4;
@@ -618,7 +640,7 @@
             // 
             // Rented_out
             // 
-            this.Rented_out.Location = new System.Drawing.Point(387, 295);
+            this.Rented_out.Location = new System.Drawing.Point(989, 771);
             this.Rented_out.Name = "Rented_out";
             this.Rented_out.Size = new System.Drawing.Size(108, 23);
             this.Rented_out.TabIndex = 5;
@@ -632,6 +654,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1245, 825);
+            this.Controls.Add(this.Rented_out);
             this.Controls.Add(this.allrented);
             this.Controls.Add(this.movie_panel);
             this.Controls.Add(this.customer_panel);
@@ -693,16 +716,16 @@
         private System.Windows.Forms.Label phone_label;
         private System.Windows.Forms.Label address_label;
         private System.Windows.Forms.Panel movie_panel;
-        private System.Windows.Forms.Button Delete;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button Delete_movie;
+        private System.Windows.Forms.Button update_movie;
+        private System.Windows.Forms.Button Add_movie;
+        private System.Windows.Forms.TextBox genre;
+        private System.Windows.Forms.TextBox plot;
+        private System.Windows.Forms.TextBox copies;
+        private System.Windows.Forms.TextBox rent_cost;
+        private System.Windows.Forms.TextBox Year;
+        private System.Windows.Forms.TextBox Title;
+        private System.Windows.Forms.TextBox rating;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -713,6 +736,8 @@
         private System.Windows.Forms.Label movie_details;
         private System.Windows.Forms.Button allrented;
         private System.Windows.Forms.Button Rented_out;
+        private System.Windows.Forms.Button Return;
+        private System.Windows.Forms.Button Issue;
     }
 }
 
