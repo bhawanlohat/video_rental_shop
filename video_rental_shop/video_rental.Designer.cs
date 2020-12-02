@@ -81,6 +81,12 @@
             this.movie_details = new System.Windows.Forms.Label();
             this.allrented = new System.Windows.Forms.Button();
             this.Rented_out = new System.Windows.Forms.Button();
+            this.hit_movie = new System.Windows.Forms.TabPage();
+            this.hit_movie_grid = new System.Windows.Forms.DataGridView();
+            this.popular_buyer = new System.Windows.Forms.TabPage();
+            this.popular_buyer_grid = new System.Windows.Forms.DataGridView();
+            this.hit_movies = new System.Windows.Forms.Button();
+            this.po_buyers = new System.Windows.Forms.Button();
             this.Movies.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customer_data)).BeginInit();
@@ -91,6 +97,10 @@
             this.rental_panel.SuspendLayout();
             this.customer_panel.SuspendLayout();
             this.movie_panel.SuspendLayout();
+            this.hit_movie.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hit_movie_grid)).BeginInit();
+            this.popular_buyer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.popular_buyer_grid)).BeginInit();
             this.SuspendLayout();
             // 
             // Movies
@@ -98,6 +108,8 @@
             this.Movies.Controls.Add(this.tabPage1);
             this.Movies.Controls.Add(this.Movies_detail);
             this.Movies.Controls.Add(this.Rented);
+            this.Movies.Controls.Add(this.hit_movie);
+            this.Movies.Controls.Add(this.popular_buyer);
             this.Movies.Location = new System.Drawing.Point(12, 12);
             this.Movies.Name = "Movies";
             this.Movies.SelectedIndex = 0;
@@ -609,13 +621,75 @@
             // 
             // Rented_out
             // 
-            this.Rented_out.Location = new System.Drawing.Point(989, 771);
+            this.Rented_out.Location = new System.Drawing.Point(941, 772);
             this.Rented_out.Name = "Rented_out";
-            this.Rented_out.Size = new System.Drawing.Size(108, 23);
+            this.Rented_out.Size = new System.Drawing.Size(123, 29);
             this.Rented_out.TabIndex = 5;
             this.Rented_out.Text = "Rented Out";
             this.Rented_out.UseVisualStyleBackColor = true;
             this.Rented_out.Click += new System.EventHandler(this.Rented_out_Click);
+            // 
+            // hit_movie
+            // 
+            this.hit_movie.Controls.Add(this.hit_movie_grid);
+            this.hit_movie.Location = new System.Drawing.Point(4, 25);
+            this.hit_movie.Name = "hit_movie";
+            this.hit_movie.Padding = new System.Windows.Forms.Padding(3);
+            this.hit_movie.Size = new System.Drawing.Size(560, 236);
+            this.hit_movie.TabIndex = 3;
+            this.hit_movie.Text = "Hit movies";
+            this.hit_movie.UseVisualStyleBackColor = true;
+            // 
+            // hit_movie_grid
+            // 
+            this.hit_movie_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.hit_movie_grid.Location = new System.Drawing.Point(3, 3);
+            this.hit_movie_grid.Name = "hit_movie_grid";
+            this.hit_movie_grid.RowHeadersWidth = 51;
+            this.hit_movie_grid.RowTemplate.Height = 24;
+            this.hit_movie_grid.Size = new System.Drawing.Size(557, 233);
+            this.hit_movie_grid.TabIndex = 0;
+            // 
+            // popular_buyer
+            // 
+            this.popular_buyer.Controls.Add(this.popular_buyer_grid);
+            this.popular_buyer.Location = new System.Drawing.Point(4, 25);
+            this.popular_buyer.Name = "popular_buyer";
+            this.popular_buyer.Padding = new System.Windows.Forms.Padding(3);
+            this.popular_buyer.Size = new System.Drawing.Size(560, 236);
+            this.popular_buyer.TabIndex = 4;
+            this.popular_buyer.Text = "Popular Buyer";
+            this.popular_buyer.UseVisualStyleBackColor = true;
+            // 
+            // popular_buyer_grid
+            // 
+            this.popular_buyer_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.popular_buyer_grid.Location = new System.Drawing.Point(0, 3);
+            this.popular_buyer_grid.Name = "popular_buyer_grid";
+            this.popular_buyer_grid.RowHeadersWidth = 51;
+            this.popular_buyer_grid.RowTemplate.Height = 24;
+            this.popular_buyer_grid.Size = new System.Drawing.Size(560, 233);
+            this.popular_buyer_grid.TabIndex = 0;
+            // 
+            // hit_movies
+            // 
+            this.hit_movies.Location = new System.Drawing.Point(806, 775);
+            this.hit_movies.Name = "hit_movies";
+            this.hit_movies.Size = new System.Drawing.Size(109, 23);
+            this.hit_movies.TabIndex = 6;
+            this.hit_movies.Text = "Hit Movies";
+            this.hit_movies.UseVisualStyleBackColor = true;
+            this.hit_movies.Click += new System.EventHandler(this.hit_movies_Click);
+            // 
+            // po_buyers
+            // 
+            this.po_buyers.Location = new System.Drawing.Point(1098, 766);
+            this.po_buyers.Name = "po_buyers";
+            this.po_buyers.Size = new System.Drawing.Size(135, 33);
+            this.po_buyers.TabIndex = 7;
+            this.po_buyers.Text = "Popular Buyers";
+            this.po_buyers.UseVisualStyleBackColor = true;
+            this.po_buyers.Click += new System.EventHandler(this.po_buyers_Click);
             // 
             // video_rental
             // 
@@ -623,6 +697,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1245, 825);
+            this.Controls.Add(this.po_buyers);
+            this.Controls.Add(this.hit_movies);
             this.Controls.Add(this.Rented_out);
             this.Controls.Add(this.allrented);
             this.Controls.Add(this.movie_panel);
@@ -645,6 +721,10 @@
             this.customer_panel.PerformLayout();
             this.movie_panel.ResumeLayout(false);
             this.movie_panel.PerformLayout();
+            this.hit_movie.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.hit_movie_grid)).EndInit();
+            this.popular_buyer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.popular_buyer_grid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -704,6 +784,12 @@
         private System.Windows.Forms.Button Rented_out;
         private System.Windows.Forms.Button Return;
         private System.Windows.Forms.Button Issue;
+        private System.Windows.Forms.TabPage hit_movie;
+        private System.Windows.Forms.DataGridView hit_movie_grid;
+        private System.Windows.Forms.TabPage popular_buyer;
+        private System.Windows.Forms.DataGridView popular_buyer_grid;
+        private System.Windows.Forms.Button hit_movies;
+        private System.Windows.Forms.Button po_buyers;
     }
 }
 

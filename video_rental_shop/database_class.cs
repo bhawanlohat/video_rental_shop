@@ -385,5 +385,29 @@ namespace video_rental_shop
             }
             return dt;
         }
+        public DataTable Fillhit_movie_Data()
+        {
+            DataTable dt = new DataTable();
+            QueryString = "select * From hitmovie";
+            using (da = new SqlDataAdapter(QueryString, Obj_Conn))
+            {
+                Obj_Conn.Open();
+                da.Fill(dt);
+                Obj_Conn.Close();
+            }
+            return dt;
+        }
+        public DataTable Fillallpopular_buyer_Data()
+        {
+            DataTable dt = new DataTable();
+            QueryString = "select * From Popularbuyer";
+            using (da = new SqlDataAdapter(QueryString, Obj_Conn))
+            {
+                Obj_Conn.Open();
+                da.Fill(dt);
+                Obj_Conn.Close();
+            }
+            return dt;
+        }
     }
 }

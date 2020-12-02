@@ -307,7 +307,33 @@ namespace video_rental_shop
             }
         }
 
+        private void hit_movies_Click(object sender, EventArgs e)
+        {
+            hit_movie_grid.DataSource = null;
+            try
+            {
+                hit_movie_grid.DataSource = obj_Data.Fillhit_movie_Data();
+                hit_movie_grid.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
+        private void po_buyers_Click(object sender, EventArgs e)
+        {
+            popular_buyer_grid.DataSource = null;
+            try
+            {
+                popular_buyer_grid.DataSource = obj_Data.Fillallpopular_buyer_Data();
+                popular_buyer_grid.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
 
