@@ -148,6 +148,7 @@
             this.movie_data.RowTemplate.Height = 24;
             this.movie_data.Size = new System.Drawing.Size(554, 230);
             this.movie_data.TabIndex = 0;
+            this.movie_data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.movie_data_CellContentClick);
             // 
             // Rented
             // 
@@ -198,6 +199,7 @@
             this.Return.TabIndex = 6;
             this.Return.Text = "Return";
             this.Return.UseVisualStyleBackColor = true;
+            this.Return.Click += new System.EventHandler(this.Return_Click);
             // 
             // Issue
             // 
@@ -207,6 +209,7 @@
             this.Issue.TabIndex = 5;
             this.Issue.Text = "Issue";
             this.Issue.UseVisualStyleBackColor = true;
+            this.Issue.Click += new System.EventHandler(this.Issue_Click);
             // 
             // rental_details
             // 

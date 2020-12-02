@@ -95,11 +95,11 @@ namespace video_rental_shop
             {
                 Cmd.Parameters.Clear();
                 Cmd.Connection = Obj_Conn;
-                QueryString = "Insert into Customer(FirstName,LastName,Address, Phone) Values(@FirstName,@LastName,@Address, @Mobile)";
+                QueryString = "Insert into Customer(FirstName,LastName,Address, Phone) Values(@FirstName,@LastName,@Address, @Phone)";
                 Cmd.Parameters.AddWithValue("@FirstName", FName);
                 Cmd.Parameters.AddWithValue("@LastName", LName);
                 Cmd.Parameters.AddWithValue("@Address", Address);
-                Cmd.Parameters.AddWithValue("@Mobile", Mobile);
+                Cmd.Parameters.AddWithValue("@Phone", Mobile);
                 Cmd.CommandText = QueryString;
                 //connection opened
                 Obj_Conn.Open();
@@ -248,6 +248,104 @@ namespace video_rental_shop
                 // Executed query
                 Cmd.ExecuteNonQuery();
                 return "Movie Data vanished Successfully";
+            }
+            catch (Exception ex)
+            {
+                // show error Message
+                return ex.Message;
+            }
+            finally
+            {
+                // close connection
+                if (Obj_Conn != null)
+                {
+                    Obj_Conn.Close();
+                }
+            }
+        }
+
+        public string IssueMovie(DateTime Issue_date)
+        {
+            try
+            {
+                Cmd.Parameters.Clear();
+                Cmd.Connection = Obj_Conn;
+                QueryString = "Insert into RentedMovies(MovieIDFK,CustIDFK,DateRented,DateReturned) values(@MovieID,@CustID,@Issue_date,Null)";
+                Cmd.Parameters.AddWithValue("@MovieID", MovieID);
+                Cmd.Parameters.AddWithValue("@CustID", CustomerID);
+                Cmd.Parameters.AddWithValue("@Issue_date", Issue_date);
+                Cmd.CommandText = QueryString;
+                //connection opened
+                Obj_Conn.Open();
+                // Executed query
+                Cmd.ExecuteNonQuery();
+                return "Movies issued to customer";
+            }
+            catch (Exception ex)
+            {
+                // code to show error Message
+                return ex.Message;
+            }
+            finally
+            {
+                // close connection
+                if (Obj_Conn != null)
+                {
+                    Obj_Conn.Close();
+                }
+            }
+        }
+        //code to fill the customer data by using update query
+        public string returnMovie(DateTime Return_Date)
+        {
+            try
+            {
+                Cmd.Parameters.Clear();
+                Cmd.Connection = Obj_Conn;
+                QueryString = "Update into ReturnedMovie(MovieIDFK,CustIDFK,DateRented,DateReturn) values(@MovieID,@CustID,@Return_Date,Null)";
+                Cmd.Parameters.AddWithValue("@CustID", CustomerID);
+                Cmd.Parameters.AddWithValue("@MovieID", MovieID);
+                Cmd.Parameters.AddWithValue("@Return_date", Return_Date);
+
+                Cmd.CommandText = QueryString;
+                //connection opened
+                Obj_Conn.Open();
+                // Executed query
+                Cmd.ExecuteNonQuery();
+                return "Movies is Returned to customer";
+            }
+            catch (Exception ex)
+            {
+                // code to show error Message
+                return ex.Message;
+            }
+            finally
+            {
+                // close connection
+                if (Obj_Conn != null)
+                {
+                    Obj_Conn.Close();
+                }
+            }
+        }
+
+        public string RatingInsert(string movie_name, string customer_name, string date_rent, string date_return)
+        {
+            try
+            {
+                Cmd.Parameters.Clear();
+                Cmd.Connection = Obj_Conn;
+                QueryString = "Insert into Customer(movie_name,customer_name,date_rent,date_return) Values(@FirstName,@LastName,@Address, @Mobile)";
+                Cmd.Parameters.AddWithValue("@FirstName", movie_name);
+                Cmd.Parameters.AddWithValue("@LastName", customer_name);
+                Cmd.Parameters.AddWithValue("@Address", date_rent);
+                Cmd.Parameters.AddWithValue("@Mobile", date_return);
+                Cmd.CommandText = QueryString;
+                //connection opened
+                Obj_Conn.Open();
+                // Executed query
+                Cmd.ExecuteNonQuery();
+                return "Customer Data Inserted Successfully";
             }
             catch (Exception ex)
             {

@@ -200,6 +200,83 @@ namespace video_rental_shop
                 MessageBox.Show("Please fill all the fileds then press Add button");
             }
         }
+        private void movie_data_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                string newvalue = movie_data.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                this.Text = "Row : " + e.RowIndex.ToString() + " Col : " + e.ColumnIndex.ToString() + " Value = " + newvalue;
+                obj_Data.MovieID = Convert.ToInt32(movie_data.Rows[e.RowIndex].Cells[0].Value);
+                rating.Text = movie_data.Rows[e.RowIndex].Cells[1].Value.ToString();
+                Title.Text = movie_data.Rows[e.RowIndex].Cells[2].Value.ToString();
+                Year.Text = movie_data.Rows[e.RowIndex].Cells[4].Value.ToString();
+                rent_cost.Text = movie_data.Rows[e.RowIndex].Cells[3].Value.ToString();
+                copies.Text = movie_data.Rows[e.RowIndex].Cells[1].Value.ToString();
+                plot.Text = movie_data.Rows[e.RowIndex].Cells[2].Value.ToString();
+                genre.Text = movie_data.Rows[e.RowIndex].Cells[4].Value.ToString();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something is wrong", ex.Message);
+            }
+        }
+        private void Issue_Click(object sender, EventArgs e)
+        {
+            if (moviename_text.Text != "" && customername_text.Text != "")
+            {
+                string message = obj_Data.IssueMovie(Convert.ToDateTime(date_rented_text.Text));
+                MessageBox.Show(message);
+                rating.Text = "";
+                Title.Text = "";
+                Year.Text = "";
+                rent_cost.Text = "";
+                copies.Text = "";
+                plot.Text = "";
+                genre.Text = "";
+                moviename_text.Text = "";
+                first_name_text.Text = "";
+                last_name_text.Text = "";
+                phone_text.Text = "";
+                address_text.Text = "";
+                customername_text.Text = "";
+
+                Rental_Load();
+            }
+            else
+            {
+                // code to show the message if user did not fill all the details
+                MessageBox.Show("Please fill all the required details");
+            }
+        }
+        private void Return_Click(object sender, EventArgs e)
+        {
+            if (moviename_text.Text != "" && customername_text.Text != "")
+            {
+                string message = obj_Data.returnMovie(Convert.ToDateTime(date_returned_text.Text));
+                MessageBox.Show(message);
+                rating.Text = "";
+                Title.Text = "";
+                Year.Text = "";
+                rent_cost.Text = "";
+                copies.Text = "";
+                plot.Text = "";
+                genre.Text = "";
+                moviename_text.Text = "";
+                first_name_text.Text = "";
+                last_name_text.Text = "";
+                phone_text.Text = "";
+                address_text.Text = "";
+                customername_text.Text = "";
+
+                Rental_Load();
+            }
+            else
+            {
+                // code to show the message if user did not fill all the details
+                MessageBox.Show("Please fill all the required details");
+            }
+        }
 
         private void Rented_out_Click(object sender, EventArgs e)
         {
@@ -229,6 +306,7 @@ namespace video_rental_shop
                 MessageBox.Show(ex.Message);
             }
         }
+
 
     }
 }
