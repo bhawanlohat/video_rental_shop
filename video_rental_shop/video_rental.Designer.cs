@@ -36,11 +36,8 @@
             this.Rented = new System.Windows.Forms.TabPage();
             this.rented_data = new System.Windows.Forms.DataGridView();
             this.rental_panel = new System.Windows.Forms.Panel();
-            this.delete_rental = new System.Windows.Forms.Button();
             this.Return = new System.Windows.Forms.Button();
-            this.update_rental = new System.Windows.Forms.Button();
             this.Issue = new System.Windows.Forms.Button();
-            this.add_rental = new System.Windows.Forms.Button();
             this.rental_details = new System.Windows.Forms.Label();
             this.date_returned_text = new System.Windows.Forms.DateTimePicker();
             this.date_rented_text = new System.Windows.Forms.DateTimePicker();
@@ -177,11 +174,8 @@
             // rental_panel
             // 
             this.rental_panel.BackColor = System.Drawing.Color.Tomato;
-            this.rental_panel.Controls.Add(this.delete_rental);
             this.rental_panel.Controls.Add(this.Return);
-            this.rental_panel.Controls.Add(this.update_rental);
             this.rental_panel.Controls.Add(this.Issue);
-            this.rental_panel.Controls.Add(this.add_rental);
             this.rental_panel.Controls.Add(this.rental_details);
             this.rental_panel.Controls.Add(this.date_returned_text);
             this.rental_panel.Controls.Add(this.date_rented_text);
@@ -196,16 +190,6 @@
             this.rental_panel.Size = new System.Drawing.Size(554, 331);
             this.rental_panel.TabIndex = 1;
             // 
-            // delete_rental
-            // 
-            this.delete_rental.BackColor = System.Drawing.Color.Aquamarine;
-            this.delete_rental.Location = new System.Drawing.Point(240, 288);
-            this.delete_rental.Name = "delete_rental";
-            this.delete_rental.Size = new System.Drawing.Size(95, 36);
-            this.delete_rental.TabIndex = 14;
-            this.delete_rental.Text = "Delete";
-            this.delete_rental.UseVisualStyleBackColor = false;
-            // 
             // Return
             // 
             this.Return.Location = new System.Drawing.Point(438, 286);
@@ -215,34 +199,14 @@
             this.Return.Text = "Return";
             this.Return.UseVisualStyleBackColor = true;
             // 
-            // update_rental
-            // 
-            this.update_rental.BackColor = System.Drawing.Color.Aquamarine;
-            this.update_rental.Location = new System.Drawing.Point(127, 288);
-            this.update_rental.Name = "update_rental";
-            this.update_rental.Size = new System.Drawing.Size(98, 36);
-            this.update_rental.TabIndex = 13;
-            this.update_rental.Text = "Update";
-            this.update_rental.UseVisualStyleBackColor = false;
-            // 
             // Issue
             // 
-            this.Issue.Location = new System.Drawing.Point(357, 286);
+            this.Issue.Location = new System.Drawing.Point(113, 285);
             this.Issue.Name = "Issue";
             this.Issue.Size = new System.Drawing.Size(75, 38);
             this.Issue.TabIndex = 5;
             this.Issue.Text = "Issue";
             this.Issue.UseVisualStyleBackColor = true;
-            // 
-            // add_rental
-            // 
-            this.add_rental.BackColor = System.Drawing.Color.Aquamarine;
-            this.add_rental.Location = new System.Drawing.Point(23, 288);
-            this.add_rental.Name = "add_rental";
-            this.add_rental.Size = new System.Drawing.Size(98, 36);
-            this.add_rental.TabIndex = 12;
-            this.add_rental.Text = "Add";
-            this.add_rental.UseVisualStyleBackColor = false;
             // 
             // rental_details
             // 
@@ -486,6 +450,7 @@
             this.Delete_movie.TabIndex = 16;
             this.Delete_movie.Text = "Delete";
             this.Delete_movie.UseVisualStyleBackColor = true;
+            this.Delete_movie.Click += new System.EventHandler(this.Delete_movie_Click);
             // 
             // update_movie
             // 
@@ -495,6 +460,7 @@
             this.update_movie.TabIndex = 15;
             this.update_movie.Text = "update";
             this.update_movie.UseVisualStyleBackColor = true;
+            this.update_movie.Click += new System.EventHandler(this.update_movie_Click);
             // 
             // Add_movie
             // 
@@ -698,9 +664,6 @@
         private System.Windows.Forms.TextBox customername_text;
         private System.Windows.Forms.DateTimePicker date_returned_text;
         private System.Windows.Forms.DateTimePicker date_rented_text;
-        private System.Windows.Forms.Button delete_rental;
-        private System.Windows.Forms.Button update_rental;
-        private System.Windows.Forms.Button add_rental;
         private System.Windows.Forms.Label rental_details;
         private System.Windows.Forms.Panel customer_panel;
         private System.Windows.Forms.Label last_name_label;

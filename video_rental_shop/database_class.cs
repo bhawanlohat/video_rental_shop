@@ -154,17 +154,21 @@ namespace video_rental_shop
             }
         }
 
-        public string MoviesInsert(string FName, string LName, string Mobile, string Address)
+        public string MoviesInsert(string rating, string Title, string Year, string rent_cost, string copies, string plot, string genre)
         {
             try
             {
                 Cmd.Parameters.Clear();
                 Cmd.Connection = Obj_Conn;
-                QueryString = "Insert into Movies(FirstName,LastName,Address, Phone) Values(@FirstName,@LastName,@Address, @Mobile)";
-                Cmd.Parameters.AddWithValue("@FirstName", FName);
-                Cmd.Parameters.AddWithValue("@LastName", LName);
-                Cmd.Parameters.AddWithValue("@Address", Address);
-                Cmd.Parameters.AddWithValue("@Mobile", Mobile);
+                QueryString = "Insert into Movies(Rating,Title,Year,Rental_Cost,Copies,Plot,Genre) Values(@rating,@Ttile,@Year, @rent_cost,@copies,@plot,@genre)";
+                Cmd.Parameters.AddWithValue("@rating", rating);
+                Cmd.Parameters.AddWithValue("@Title", Title);
+                Cmd.Parameters.AddWithValue("@Year", Year);
+                Cmd.Parameters.AddWithValue("@rent_cost", rent_cost);
+                Cmd.Parameters.AddWithValue("@copies", copies);
+                Cmd.Parameters.AddWithValue("@plot", plot);
+                Cmd.Parameters.AddWithValue("@genre", genre);
+
                 Cmd.CommandText = QueryString;
                 //connection opened
                 Obj_Conn.Open();
@@ -187,7 +191,78 @@ namespace video_rental_shop
             }
         }
 
+        public string MoviesUpdate(string rating, string Title, string Year, string rent_cost, string copies, string plot, string genre)
+        {
+            try
+            {
+                Cmd.Parameters.Clear();
+                Cmd.Connection = Obj_Conn;
+                QueryString = "Insert into Movies(Rating,Title,Year,Rental_Cost,Copies,Plot,Genre) Values(@rating,@Ttile,@Year, @rent_cost,@copies,@plot,@genre)";
+                Cmd.Parameters.AddWithValue("@rating", rating);
+                Cmd.Parameters.AddWithValue("@Title", Title);
+                Cmd.Parameters.AddWithValue("@Year", Year);
+                Cmd.Parameters.AddWithValue("@rent_cost", rent_cost);
+                Cmd.Parameters.AddWithValue("@copies", copies);
+                Cmd.Parameters.AddWithValue("@plot", plot);
+                Cmd.Parameters.AddWithValue("@genre", genre);
 
+                Cmd.CommandText = QueryString;
+                //connection opened
+                Obj_Conn.Open();
+                // Executed query
+                Cmd.ExecuteNonQuery();
+                return "Movie infromation update Successfully";
+            }
+            catch (Exception ex)
+            {
+                // show error Message
+                return ex.Message;
+            }
+            finally
+            {
+                // close connection
+                if (Obj_Conn != null)
+                {
+                    Obj_Conn.Close();
+                }
+            }
+        }
+        public string MoviesDelete(string rating, string Title, string Year, string rent_cost, string copies, string plot, string genre)
+        {
+            try
+            {
+                Cmd.Parameters.Clear();
+                Cmd.Connection = Obj_Conn;
+                QueryString = "Insert into Movies(Rating,Title,Year,Rental_Cost,Copies,Plot,Genre) Values(@rating,@Ttile,@Year, @rent_cost,@copies,@plot,@genre)";
+                Cmd.Parameters.AddWithValue("@rating", rating);
+                Cmd.Parameters.AddWithValue("@Title", Title);
+                Cmd.Parameters.AddWithValue("@Year", Year);
+                Cmd.Parameters.AddWithValue("@rent_cost", rent_cost);
+                Cmd.Parameters.AddWithValue("@copies", copies);
+                Cmd.Parameters.AddWithValue("@plot", plot);
+                Cmd.Parameters.AddWithValue("@genre", genre);
+
+                Cmd.CommandText = QueryString;
+                //connection opened
+                Obj_Conn.Open();
+                // Executed query
+                Cmd.ExecuteNonQuery();
+                return "Movie Data vanished Successfully";
+            }
+            catch (Exception ex)
+            {
+                // show error Message
+                return ex.Message;
+            }
+            finally
+            {
+                // close connection
+                if (Obj_Conn != null)
+                {
+                    Obj_Conn.Close();
+                }
+            }
+        }
         public DataTable Fillrentedout_Data()
         {
             DataTable dt = new DataTable();

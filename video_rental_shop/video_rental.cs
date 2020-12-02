@@ -158,7 +158,48 @@ namespace video_rental_shop
             }
         }
 
+        private void update_movie_Click(object sender, EventArgs e)
+        {
+            if (rating.Text != "" && Title.Text != "" && Year.Text != "" && rent_cost.Text != "" && copies.Text != "" && plot.Text != "" && genre.Text != "")
+            {
+                string message = obj_Data.MoviesUpdate(rating.Text, Title.Text, Year.Text, rent_cost.Text, copies.Text, plot.Text, genre.Text);
+                MessageBox.Show(message);
+                rating.Text = "";
+                Title.Text = "";
+                Year.Text = "";
+                rent_cost.Text = "";
+                copies.Text = "";
+                plot.Text = "";
+                genre.Text = "";
+                Movies_Load();
+            }
+            else
+            {
+                MessageBox.Show("Please fill all the fileds then press Add button");
+            }
+        }
 
+
+        private void Delete_movie_Click(object sender, EventArgs e)
+        {
+            if (rating.Text != "" && Title.Text != "" && Year.Text != "" && rent_cost.Text != "" && copies.Text != "" && plot.Text != "" && genre.Text != "")
+            {
+                string message = obj_Data.MoviesDelete(rating.Text, Title.Text, Year.Text, rent_cost.Text, copies.Text, plot.Text, genre.Text);
+                MessageBox.Show(message);
+                rating.Text = "";
+                Title.Text = "";
+                Year.Text = "";
+                rent_cost.Text = "";
+                copies.Text = "";
+                plot.Text = "";
+                genre.Text = "";
+                Movies_Load();
+            }
+            else
+            {
+                MessageBox.Show("Please fill all the fileds then press Add button");
+            }
+        }
 
         private void Rented_out_Click(object sender, EventArgs e)
         {
@@ -188,7 +229,6 @@ namespace video_rental_shop
                 MessageBox.Show(ex.Message);
             }
         }
-
 
     }
 }
