@@ -430,6 +430,7 @@
             this.add_customer.TabIndex = 4;
             this.add_customer.Text = "Add";
             this.add_customer.UseVisualStyleBackColor = false;
+            this.add_customer.Click += new System.EventHandler(this.add_customer_Click);
             // 
             // phone_label
             // 

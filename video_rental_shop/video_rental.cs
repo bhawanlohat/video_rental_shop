@@ -67,7 +67,8 @@ namespace video_rental_shop
                 MessageBox.Show(ex.Message);
             }
         }
-        private void btn_Add_Click(object sender, EventArgs e)
+
+        private void add_customer_Click(object sender, EventArgs e)
         {
             if (first_name_text.Text != "" && last_name_text.Text != "" && address_text.Text != "" && phone_text.Text != "")
             {
@@ -84,7 +85,6 @@ namespace video_rental_shop
                 MessageBox.Show("Please fill all the fileds then press Add button");
             }
         }
-
         private void update_custmer_Click(object sender, EventArgs e)
         {
             if (first_name_text.Text != "" && last_name_text.Text != "" && address_text.Text != "" && phone_text.Text != "")
@@ -334,6 +334,8 @@ namespace video_rental_shop
                 MessageBox.Show(ex.Message);
             }
         }
+
+
     }
 }
 
