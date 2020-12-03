@@ -35,6 +35,10 @@
             this.movie_data = new System.Windows.Forms.DataGridView();
             this.Rented = new System.Windows.Forms.TabPage();
             this.rented_data = new System.Windows.Forms.DataGridView();
+            this.hit_movie = new System.Windows.Forms.TabPage();
+            this.hit_movie_grid = new System.Windows.Forms.DataGridView();
+            this.popular_buyer = new System.Windows.Forms.TabPage();
+            this.popular_buyer_grid = new System.Windows.Forms.DataGridView();
             this.rental_panel = new System.Windows.Forms.Panel();
             this.Return = new System.Windows.Forms.Button();
             this.Issue = new System.Windows.Forms.Button();
@@ -81,10 +85,6 @@
             this.movie_details = new System.Windows.Forms.Label();
             this.allrented = new System.Windows.Forms.Button();
             this.Rented_out = new System.Windows.Forms.Button();
-            this.hit_movie = new System.Windows.Forms.TabPage();
-            this.hit_movie_grid = new System.Windows.Forms.DataGridView();
-            this.popular_buyer = new System.Windows.Forms.TabPage();
-            this.popular_buyer_grid = new System.Windows.Forms.DataGridView();
             this.hit_movies = new System.Windows.Forms.Button();
             this.po_buyers = new System.Windows.Forms.Button();
             this.Movies.SuspendLayout();
@@ -94,13 +94,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.movie_data)).BeginInit();
             this.Rented.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rented_data)).BeginInit();
-            this.rental_panel.SuspendLayout();
-            this.customer_panel.SuspendLayout();
-            this.movie_panel.SuspendLayout();
             this.hit_movie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hit_movie_grid)).BeginInit();
             this.popular_buyer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popular_buyer_grid)).BeginInit();
+            this.rental_panel.SuspendLayout();
+            this.customer_panel.SuspendLayout();
+            this.movie_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Movies
@@ -184,6 +184,48 @@
             this.rented_data.Size = new System.Drawing.Size(557, 233);
             this.rented_data.TabIndex = 0;
             // 
+            // hit_movie
+            // 
+            this.hit_movie.Controls.Add(this.hit_movie_grid);
+            this.hit_movie.Location = new System.Drawing.Point(4, 25);
+            this.hit_movie.Name = "hit_movie";
+            this.hit_movie.Padding = new System.Windows.Forms.Padding(3);
+            this.hit_movie.Size = new System.Drawing.Size(560, 236);
+            this.hit_movie.TabIndex = 3;
+            this.hit_movie.Text = "Hit movies";
+            this.hit_movie.UseVisualStyleBackColor = true;
+            // 
+            // hit_movie_grid
+            // 
+            this.hit_movie_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.hit_movie_grid.Location = new System.Drawing.Point(3, 3);
+            this.hit_movie_grid.Name = "hit_movie_grid";
+            this.hit_movie_grid.RowHeadersWidth = 51;
+            this.hit_movie_grid.RowTemplate.Height = 24;
+            this.hit_movie_grid.Size = new System.Drawing.Size(557, 233);
+            this.hit_movie_grid.TabIndex = 0;
+            // 
+            // popular_buyer
+            // 
+            this.popular_buyer.Controls.Add(this.popular_buyer_grid);
+            this.popular_buyer.Location = new System.Drawing.Point(4, 25);
+            this.popular_buyer.Name = "popular_buyer";
+            this.popular_buyer.Padding = new System.Windows.Forms.Padding(3);
+            this.popular_buyer.Size = new System.Drawing.Size(560, 236);
+            this.popular_buyer.TabIndex = 4;
+            this.popular_buyer.Text = "Popular Buyer";
+            this.popular_buyer.UseVisualStyleBackColor = true;
+            // 
+            // popular_buyer_grid
+            // 
+            this.popular_buyer_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.popular_buyer_grid.Location = new System.Drawing.Point(0, 3);
+            this.popular_buyer_grid.Name = "popular_buyer_grid";
+            this.popular_buyer_grid.RowHeadersWidth = 51;
+            this.popular_buyer_grid.RowTemplate.Height = 24;
+            this.popular_buyer_grid.Size = new System.Drawing.Size(560, 233);
+            this.popular_buyer_grid.TabIndex = 0;
+            // 
             // rental_panel
             // 
             this.rental_panel.BackColor = System.Drawing.Color.Tomato;
@@ -235,6 +277,7 @@
             // 
             // date_returned_text
             // 
+            this.date_returned_text.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.date_returned_text.Location = new System.Drawing.Point(311, 244);
             this.date_returned_text.Name = "date_returned_text";
             this.date_returned_text.Size = new System.Drawing.Size(200, 22);
@@ -242,6 +285,7 @@
             // 
             // date_rented_text
             // 
+            this.date_rented_text.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.date_rented_text.Location = new System.Drawing.Point(311, 199);
             this.date_rented_text.Name = "date_rented_text";
             this.date_rented_text.Size = new System.Drawing.Size(200, 22);
@@ -289,6 +333,7 @@
             // 
             // moviename_text
             // 
+            this.moviename_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.moviename_text.Location = new System.Drawing.Point(311, 87);
             this.moviename_text.Name = "moviename_text";
             this.moviename_text.Size = new System.Drawing.Size(100, 22);
@@ -296,6 +341,7 @@
             // 
             // customername_text
             // 
+            this.customername_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.customername_text.Location = new System.Drawing.Point(311, 143);
             this.customername_text.Name = "customername_text";
             this.customername_text.Size = new System.Drawing.Size(100, 22);
@@ -323,6 +369,7 @@
             // 
             // address_text
             // 
+            this.address_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.address_text.Location = new System.Drawing.Point(273, 175);
             this.address_text.Name = "address_text";
             this.address_text.Size = new System.Drawing.Size(100, 22);
@@ -330,6 +377,7 @@
             // 
             // first_name_text
             // 
+            this.first_name_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.first_name_text.Location = new System.Drawing.Point(273, 62);
             this.first_name_text.Name = "first_name_text";
             this.first_name_text.Size = new System.Drawing.Size(100, 22);
@@ -337,6 +385,7 @@
             // 
             // phone_text
             // 
+            this.phone_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.phone_text.Location = new System.Drawing.Point(273, 232);
             this.phone_text.Name = "phone_text";
             this.phone_text.Size = new System.Drawing.Size(100, 22);
@@ -344,6 +393,7 @@
             // 
             // last_name_text
             // 
+            this.last_name_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.last_name_text.Location = new System.Drawing.Point(273, 120);
             this.last_name_text.Name = "last_name_text";
             this.last_name_text.Size = new System.Drawing.Size(100, 22);
@@ -489,6 +539,7 @@
             // 
             // genre
             // 
+            this.genre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.genre.Location = new System.Drawing.Point(366, 386);
             this.genre.Name = "genre";
             this.genre.Size = new System.Drawing.Size(100, 22);
@@ -496,6 +547,7 @@
             // 
             // plot
             // 
+            this.plot.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.plot.Location = new System.Drawing.Point(366, 331);
             this.plot.Name = "plot";
             this.plot.Size = new System.Drawing.Size(100, 22);
@@ -503,6 +555,7 @@
             // 
             // copies
             // 
+            this.copies.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.copies.Location = new System.Drawing.Point(366, 280);
             this.copies.Name = "copies";
             this.copies.Size = new System.Drawing.Size(100, 22);
@@ -510,6 +563,7 @@
             // 
             // rent_cost
             // 
+            this.rent_cost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.rent_cost.Location = new System.Drawing.Point(366, 225);
             this.rent_cost.Name = "rent_cost";
             this.rent_cost.Size = new System.Drawing.Size(100, 22);
@@ -517,6 +571,7 @@
             // 
             // Year
             // 
+            this.Year.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.Year.Location = new System.Drawing.Point(366, 178);
             this.Year.Name = "Year";
             this.Year.Size = new System.Drawing.Size(100, 22);
@@ -524,6 +579,7 @@
             // 
             // Title
             // 
+            this.Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.Title.Location = new System.Drawing.Point(366, 119);
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(100, 22);
@@ -531,6 +587,7 @@
             // 
             // rating
             // 
+            this.rating.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.rating.Location = new System.Drawing.Point(366, 65);
             this.rating.Name = "rating";
             this.rating.Size = new System.Drawing.Size(100, 22);
@@ -629,48 +686,6 @@
             this.Rented_out.UseVisualStyleBackColor = true;
             this.Rented_out.Click += new System.EventHandler(this.Rented_out_Click);
             // 
-            // hit_movie
-            // 
-            this.hit_movie.Controls.Add(this.hit_movie_grid);
-            this.hit_movie.Location = new System.Drawing.Point(4, 25);
-            this.hit_movie.Name = "hit_movie";
-            this.hit_movie.Padding = new System.Windows.Forms.Padding(3);
-            this.hit_movie.Size = new System.Drawing.Size(560, 236);
-            this.hit_movie.TabIndex = 3;
-            this.hit_movie.Text = "Hit movies";
-            this.hit_movie.UseVisualStyleBackColor = true;
-            // 
-            // hit_movie_grid
-            // 
-            this.hit_movie_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.hit_movie_grid.Location = new System.Drawing.Point(3, 3);
-            this.hit_movie_grid.Name = "hit_movie_grid";
-            this.hit_movie_grid.RowHeadersWidth = 51;
-            this.hit_movie_grid.RowTemplate.Height = 24;
-            this.hit_movie_grid.Size = new System.Drawing.Size(557, 233);
-            this.hit_movie_grid.TabIndex = 0;
-            // 
-            // popular_buyer
-            // 
-            this.popular_buyer.Controls.Add(this.popular_buyer_grid);
-            this.popular_buyer.Location = new System.Drawing.Point(4, 25);
-            this.popular_buyer.Name = "popular_buyer";
-            this.popular_buyer.Padding = new System.Windows.Forms.Padding(3);
-            this.popular_buyer.Size = new System.Drawing.Size(560, 236);
-            this.popular_buyer.TabIndex = 4;
-            this.popular_buyer.Text = "Popular Buyer";
-            this.popular_buyer.UseVisualStyleBackColor = true;
-            // 
-            // popular_buyer_grid
-            // 
-            this.popular_buyer_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.popular_buyer_grid.Location = new System.Drawing.Point(0, 3);
-            this.popular_buyer_grid.Name = "popular_buyer_grid";
-            this.popular_buyer_grid.RowHeadersWidth = 51;
-            this.popular_buyer_grid.RowTemplate.Height = 24;
-            this.popular_buyer_grid.Size = new System.Drawing.Size(560, 233);
-            this.popular_buyer_grid.TabIndex = 0;
-            // 
             // hit_movies
             // 
             this.hit_movies.Location = new System.Drawing.Point(806, 775);
@@ -715,16 +730,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.movie_data)).EndInit();
             this.Rented.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rented_data)).EndInit();
+            this.hit_movie.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.hit_movie_grid)).EndInit();
+            this.popular_buyer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.popular_buyer_grid)).EndInit();
             this.rental_panel.ResumeLayout(false);
             this.rental_panel.PerformLayout();
             this.customer_panel.ResumeLayout(false);
             this.customer_panel.PerformLayout();
             this.movie_panel.ResumeLayout(false);
             this.movie_panel.PerformLayout();
-            this.hit_movie.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.hit_movie_grid)).EndInit();
-            this.popular_buyer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.popular_buyer_grid)).EndInit();
             this.ResumeLayout(false);
 
         }
