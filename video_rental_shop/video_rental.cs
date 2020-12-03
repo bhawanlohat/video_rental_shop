@@ -19,58 +19,56 @@ namespace video_rental_shop
         public video_rental()
         {
             InitializeComponent();
-            Customer_Load();
-            Movies_Load();
-            Rental_Load();
+            Customer_Load(); //function call
+            Movies_Load();//function call
+            Rental_Load();//function call
         }
 
-        public object DGV_Rental { get; private set; }
-
-        public void Customer_Load()
+        public void Customer_Load() //function define
         {
             customer_data.DataSource = null;
             try
             {
-                customer_data.DataSource = obj_Data.FillCustomer_Data();
+                customer_data.DataSource = obj_Data.FillCustomer_Data();// to check data filled
                 customer_data.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);//pop up meesage when empty
             }
         }
 
-        public void Movies_Load()
+        public void Movies_Load()//function define
         {
             movie_data.DataSource = null;
             try
             {
-                movie_data.DataSource = obj_Data.FillMovies_Data();
+                movie_data.DataSource = obj_Data.FillMovies_Data();// to check data filled
                 movie_data.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);//pop up meesage when empty
             }
         }
 
-        public void Rental_Load()
+        public void Rental_Load()//function define
         {
             rented_data.DataSource = null;
             try
             {
-                rented_data.DataSource = obj_Data.FillRental_Data();
+                rented_data.DataSource = obj_Data.FillRental_Data();// to check data filled
                 rented_data.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);//pop up meesage when empty
             }
         }
 
         private void add_customer_Click(object sender, EventArgs e)
         {
-            if (first_name_text.Text != "" && last_name_text.Text != "" && address_text.Text != "" && phone_text.Text != "")
+            if (first_name_text.Text != "" && last_name_text.Text != "" && address_text.Text != "" && phone_text.Text != "")// text box name  if value is null
             {
                 string message = obj_Data.CustomerInsert(first_name_text.Text, last_name_text.Text, phone_text.Text, address_text.Text);
                 MessageBox.Show(message);
@@ -82,12 +80,12 @@ namespace video_rental_shop
             }
             else
             {
-                MessageBox.Show("Please fill all the fileds then press Add button");
+                MessageBox.Show("Please fill all the fileds then press Add button");//when information filled compeletely
             }
         }
         private void update_custmer_Click(object sender, EventArgs e)
         {
-            if (first_name_text.Text != "" && last_name_text.Text != "" && address_text.Text != "" && phone_text.Text != "")
+            if (first_name_text.Text != "" && last_name_text.Text != "" && address_text.Text != "" && phone_text.Text != "")// text box name  if value is null
             {
                 string message = obj_Data.CustomerUpdate(first_name_text.Text, last_name_text.Text, phone_text.Text, address_text.Text);
                 MessageBox.Show(message);
@@ -99,12 +97,12 @@ namespace video_rental_shop
             }
             else
             {
-                MessageBox.Show("Please fill all the fileds then press Add button");
+                MessageBox.Show("Please fill all the fileds then press Add button");//when information filled compeletely
             }
         }
         private void delete_customer_Click(object sender, EventArgs e)
         {
-            if (first_name_text.Text != "" && last_name_text.Text != "" && address_text.Text != "" && phone_text.Text != "")
+            if (first_name_text.Text != "" && last_name_text.Text != "" && address_text.Text != "" && phone_text.Text != "")// text box name  if value is null
             {
                 string message = obj_Data.CustomerDelete(first_name_text.Text, last_name_text.Text, phone_text.Text, address_text.Text);
                 MessageBox.Show(message);
@@ -116,7 +114,7 @@ namespace video_rental_shop
             }
             else
             {
-                MessageBox.Show("Please fill all the fileds then press Add button");
+                MessageBox.Show("Please fill all the fileds then press Add button");//when information filled compeletely
             }
         }
         private void customer_data_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -154,13 +152,13 @@ namespace video_rental_shop
             }
             else
             {
-                MessageBox.Show("Please fill all the fileds then press Add button");
+                MessageBox.Show("Please fill all the fileds then press Add button");//when information filled compeletely
             }
         }
 
         private void update_movie_Click(object sender, EventArgs e)
         {
-            if (rating.Text != "" && Title.Text != "" && Year.Text != "" && rent_cost.Text != "" && copies.Text != "" && plot.Text != "" && genre.Text != "")
+            if (rating.Text != "" && Title.Text != "" && Year.Text != "" && rent_cost.Text != "" && copies.Text != "" && plot.Text != "" && genre.Text != "")// text box name  if value is null
             {
                 string message = obj_Data.MoviesUpdate(rating.Text, Title.Text, Year.Text, rent_cost.Text, copies.Text, plot.Text, genre.Text);
                 MessageBox.Show(message);
@@ -175,14 +173,14 @@ namespace video_rental_shop
             }
             else
             {
-                MessageBox.Show("Please fill all the fileds then press Add button");
+                MessageBox.Show("Please fill all the fileds then press Add button");//when information filled compeletely
             }
         }
 
 
         private void Delete_movie_Click(object sender, EventArgs e)
         {
-            if (rating.Text != "" && Title.Text != "" && Year.Text != "" && rent_cost.Text != "" && copies.Text != "" && plot.Text != "" && genre.Text != "")
+            if (rating.Text != "" && Title.Text != "" && Year.Text != "" && rent_cost.Text != "" && copies.Text != "" && plot.Text != "" && genre.Text != "")// text box name  if value is null
             {
                 string message = obj_Data.MoviesDelete(rating.Text, Title.Text, Year.Text, rent_cost.Text, copies.Text, plot.Text, genre.Text);
                 MessageBox.Show(message);
@@ -223,7 +221,7 @@ namespace video_rental_shop
         }
         private void Issue_Click(object sender, EventArgs e)
         {
-            if (moviename_text.Text != "" && customername_text.Text != "")
+            if (moviename_text.Text != "" && customername_text.Text != "")// text box name  if value is null
             {
                 string message = obj_Data.IssueMovie(Convert.ToDateTime(date_rented_text.Text));
                 MessageBox.Show(message);
@@ -251,7 +249,7 @@ namespace video_rental_shop
         }
         private void Return_Click(object sender, EventArgs e)
         {
-            if (moviename_text.Text != "" && customername_text.Text != "")
+            if (moviename_text.Text != "" && customername_text.Text != "")// text box name  if value is null
             {
                 string message = obj_Data.returnMovie(Convert.ToDateTime(date_returned_text.Text));
                 MessageBox.Show(message);

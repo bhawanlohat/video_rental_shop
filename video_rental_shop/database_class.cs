@@ -15,7 +15,7 @@ namespace video_rental_shop
         private SqlDataReader Data_Reader;
         private SqlDataAdapter da = new SqlDataAdapter();
         string QueryString;
-        public int CustomerID, MovieID;
+        public int CustomerID, MovieID;// declare datatype
         public database_class()
         {
             string ConnString = @"Data Source=DESKTOP-HL11OFI\SQLEXPRESS;Initial Catalog=video_rental_shop;Integrated Security=True";
@@ -27,9 +27,9 @@ namespace video_rental_shop
             QueryString = "select * From Customer";
             using (da = new SqlDataAdapter(QueryString, Obj_Conn))
             {
-                Obj_Conn.Open();
+                Obj_Conn.Open();//connection
                 da.Fill(dt);
-                Obj_Conn.Close();
+                Obj_Conn.Close();//connection
             }
             return dt;
         }
@@ -39,9 +39,9 @@ namespace video_rental_shop
             QueryString = "select * From Movies";
             using (da = new SqlDataAdapter(QueryString, Obj_Conn))
             {
-                Obj_Conn.Open();
+                Obj_Conn.Open();//connection
                 da.Fill(dt);
-                Obj_Conn.Close();
+                Obj_Conn.Close();//connection
             }
             return dt;
         }
@@ -51,9 +51,9 @@ namespace video_rental_shop
             QueryString = "select * From RentedMovies";
             using (da = new SqlDataAdapter(QueryString, Obj_Conn))
             {
-                Obj_Conn.Open();
+                Obj_Conn.Open();//connection
                 da.Fill(dt);
-                Obj_Conn.Close();
+                Obj_Conn.Close();//connection
             }
             return dt;
         }
@@ -62,7 +62,7 @@ namespace video_rental_shop
             try
             {
                 Cmd.Parameters.Clear();
-                Cmd.Connection = Obj_Conn;
+                Cmd.Connection = Obj_Conn;//connection
                 QueryString = "Insert into Customer(FirstName,LastName,Address, Phone) Values(@FirstName,@LastName,@Address, @Mobile)";
                 Cmd.Parameters.AddWithValue("@FirstName", FName);
                 Cmd.Parameters.AddWithValue("@LastName", LName);
@@ -85,7 +85,7 @@ namespace video_rental_shop
                 // close connection
                 if (Obj_Conn != null)
                 {
-                    Obj_Conn.Close();
+                    Obj_Conn.Close();//connection
                 }
             }
         }
@@ -94,7 +94,7 @@ namespace video_rental_shop
             try
             {
                 Cmd.Parameters.Clear();
-                Cmd.Connection = Obj_Conn;
+                Cmd.Connection = Obj_Conn;//connection
                 QueryString = "Insert into Customer(FirstName,LastName,Address, Phone) Values(@FirstName,@LastName,@Address, @Phone)";
                 Cmd.Parameters.AddWithValue("@FirstName", FName);
                 Cmd.Parameters.AddWithValue("@LastName", LName);
@@ -117,7 +117,7 @@ namespace video_rental_shop
                 // close connection
                 if (Obj_Conn != null)
                 {
-                    Obj_Conn.Close();
+                    Obj_Conn.Close();//connection
                 }
             }
         }
@@ -149,7 +149,7 @@ namespace video_rental_shop
                 // close connection
                 if (Obj_Conn != null)
                 {
-                    Obj_Conn.Close();
+                    Obj_Conn.Close();//connection
                 }
             }
         }
@@ -159,7 +159,7 @@ namespace video_rental_shop
             try
             {
                 Cmd.Parameters.Clear();
-                Cmd.Connection = Obj_Conn;
+                Cmd.Connection = Obj_Conn;//connection
                 QueryString = "Insert into Movies(Rating,Title,Year,Rental_Cost,Copies,Plot,Genre) Values(@rating,@Ttile,@Year, @rent_cost,@copies,@plot,@genre)";
                 Cmd.Parameters.AddWithValue("@rating", rating);
                 Cmd.Parameters.AddWithValue("@Title", Title);
@@ -186,7 +186,7 @@ namespace video_rental_shop
                 // close connection
                 if (Obj_Conn != null)
                 {
-                    Obj_Conn.Close();
+                    Obj_Conn.Close();//connection
                 }
             }
         }
@@ -223,7 +223,7 @@ namespace video_rental_shop
                 // close connection
                 if (Obj_Conn != null)
                 {
-                    Obj_Conn.Close();
+                    Obj_Conn.Close();//connection
                 }
             }
         }
@@ -232,7 +232,7 @@ namespace video_rental_shop
             try
             {
                 Cmd.Parameters.Clear();
-                Cmd.Connection = Obj_Conn;
+                Cmd.Connection = Obj_Conn;//connection
                 QueryString = "Insert into Movies(Rating,Title,Year,Rental_Cost,Copies,Plot,Genre) Values(@rating,@Ttile,@Year, @rent_cost,@copies,@plot,@genre)";
                 Cmd.Parameters.AddWithValue("@rating", rating);
                 Cmd.Parameters.AddWithValue("@Title", Title);
@@ -259,7 +259,7 @@ namespace video_rental_shop
                 // close connection
                 if (Obj_Conn != null)
                 {
-                    Obj_Conn.Close();
+                    Obj_Conn.Close();//connection
                 }
             }
         }
@@ -269,7 +269,7 @@ namespace video_rental_shop
             try
             {
                 Cmd.Parameters.Clear();
-                Cmd.Connection = Obj_Conn;
+                Cmd.Connection = Obj_Conn;//connection
                 QueryString = "Insert into RentedMovies(MovieIDFK,CustIDFK,DateRented,DateReturned) values(@MovieID,@CustID,@Issue_date,Null)";
                 Cmd.Parameters.AddWithValue("@MovieID", MovieID);
                 Cmd.Parameters.AddWithValue("@CustID", CustomerID);
@@ -291,7 +291,7 @@ namespace video_rental_shop
                 // close connection
                 if (Obj_Conn != null)
                 {
-                    Obj_Conn.Close();
+                    Obj_Conn.Close();//connection
                 }
             }
         }
@@ -301,7 +301,7 @@ namespace video_rental_shop
             try
             {
                 Cmd.Parameters.Clear();
-                Cmd.Connection = Obj_Conn;
+                Cmd.Connection = Obj_Conn;//connection
                 QueryString = "Update into ReturnedMovie(MovieIDFK,CustIDFK,DateRented,DateReturn) values(@MovieID,@CustID,@Return_Date,Null)";
                 Cmd.Parameters.AddWithValue("@CustID", CustomerID);
                 Cmd.Parameters.AddWithValue("@MovieID", MovieID);
@@ -324,7 +324,7 @@ namespace video_rental_shop
                 // close connection
                 if (Obj_Conn != null)
                 {
-                    Obj_Conn.Close();
+                    Obj_Conn.Close();//connection
                 }
             }
         }
@@ -334,7 +334,7 @@ namespace video_rental_shop
             try
             {
                 Cmd.Parameters.Clear();
-                Cmd.Connection = Obj_Conn;
+                Cmd.Connection = Obj_Conn;//connection
                 QueryString = "Insert into Customer(movie_name,customer_name,date_rent,date_return) Values(@FirstName,@LastName,@Address, @Mobile)";
                 Cmd.Parameters.AddWithValue("@FirstName", movie_name);
                 Cmd.Parameters.AddWithValue("@LastName", customer_name);
@@ -357,7 +357,7 @@ namespace video_rental_shop
                 // close connection
                 if (Obj_Conn != null)
                 {
-                    Obj_Conn.Close();
+                    Obj_Conn.Close();//connection
                 }
             }
         }
@@ -367,9 +367,9 @@ namespace video_rental_shop
             QueryString = "select * From rentedout";
             using (da = new SqlDataAdapter(QueryString, Obj_Conn))
             {
-                Obj_Conn.Open();
+                Obj_Conn.Open();//connection
                 da.Fill(dt);
-                Obj_Conn.Close();
+                Obj_Conn.Close();//connection
             }
             return dt;
         }
@@ -379,9 +379,9 @@ namespace video_rental_shop
             QueryString = "select * From Allrented";
             using (da = new SqlDataAdapter(QueryString, Obj_Conn))
             {
-                Obj_Conn.Open();
+                Obj_Conn.Open();//connection
                 da.Fill(dt);
-                Obj_Conn.Close();
+                Obj_Conn.Close();//connection
             }
             return dt;
         }
@@ -391,9 +391,9 @@ namespace video_rental_shop
             QueryString = "select * From hitmovie";
             using (da = new SqlDataAdapter(QueryString, Obj_Conn))
             {
-                Obj_Conn.Open();
+                Obj_Conn.Open();//connection
                 da.Fill(dt);
-                Obj_Conn.Close();
+                Obj_Conn.Close();//connection
             }
             return dt;
         }
@@ -403,9 +403,9 @@ namespace video_rental_shop
             QueryString = "select * From Popularbuyer";
             using (da = new SqlDataAdapter(QueryString, Obj_Conn))
             {
-                Obj_Conn.Open();
+                Obj_Conn.Open();//connection
                 da.Fill(dt);
-                Obj_Conn.Close();
+                Obj_Conn.Close();//connection
             }
             return dt;
         }
