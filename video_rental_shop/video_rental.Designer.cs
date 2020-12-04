@@ -118,6 +118,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.Black;
             this.tabPage1.Controls.Add(this.customer_data);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
@@ -125,7 +126,6 @@
             this.tabPage1.Size = new System.Drawing.Size(560, 236);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Customer_detail";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // customer_data
             // 
@@ -141,6 +141,7 @@
             // 
             // Movies_detail
             // 
+            this.Movies_detail.BackColor = System.Drawing.Color.Black;
             this.Movies_detail.Controls.Add(this.movie_data);
             this.Movies_detail.Location = new System.Drawing.Point(4, 25);
             this.Movies_detail.Name = "Movies_detail";
@@ -148,13 +149,12 @@
             this.Movies_detail.Size = new System.Drawing.Size(560, 236);
             this.Movies_detail.TabIndex = 1;
             this.Movies_detail.Text = "Movies_detail";
-            this.Movies_detail.UseVisualStyleBackColor = true;
             // 
             // movie_data
             // 
             this.movie_data.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.movie_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.movie_data.Location = new System.Drawing.Point(0, 0);
+            this.movie_data.Location = new System.Drawing.Point(3, 3);
             this.movie_data.Name = "movie_data";
             this.movie_data.RowHeadersWidth = 51;
             this.movie_data.RowTemplate.Height = 24;
@@ -164,6 +164,7 @@
             // 
             // Rented
             // 
+            this.Rented.BackColor = System.Drawing.Color.Black;
             this.Rented.Controls.Add(this.rented_data);
             this.Rented.Location = new System.Drawing.Point(4, 25);
             this.Rented.Name = "Rented";
@@ -171,13 +172,12 @@
             this.Rented.Size = new System.Drawing.Size(560, 236);
             this.Rented.TabIndex = 2;
             this.Rented.Text = "Rented";
-            this.Rented.UseVisualStyleBackColor = true;
             // 
             // rented_data
             // 
             this.rented_data.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.rented_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.rented_data.Location = new System.Drawing.Point(0, 3);
+            this.rented_data.Location = new System.Drawing.Point(0, 0);
             this.rented_data.Name = "rented_data";
             this.rented_data.RowHeadersWidth = 51;
             this.rented_data.RowTemplate.Height = 24;
@@ -186,6 +186,7 @@
             // 
             // hit_movie
             // 
+            this.hit_movie.BackColor = System.Drawing.Color.Black;
             this.hit_movie.Controls.Add(this.hit_movie_grid);
             this.hit_movie.Location = new System.Drawing.Point(4, 25);
             this.hit_movie.Name = "hit_movie";
@@ -193,7 +194,6 @@
             this.hit_movie.Size = new System.Drawing.Size(560, 236);
             this.hit_movie.TabIndex = 3;
             this.hit_movie.Text = "Hit movies";
-            this.hit_movie.UseVisualStyleBackColor = true;
             // 
             // hit_movie_grid
             // 
@@ -207,6 +207,7 @@
             // 
             // popular_buyer
             // 
+            this.popular_buyer.BackColor = System.Drawing.Color.Black;
             this.popular_buyer.Controls.Add(this.popular_buyer_grid);
             this.popular_buyer.Location = new System.Drawing.Point(4, 25);
             this.popular_buyer.Name = "popular_buyer";
@@ -214,12 +215,11 @@
             this.popular_buyer.Size = new System.Drawing.Size(560, 236);
             this.popular_buyer.TabIndex = 4;
             this.popular_buyer.Text = "Popular Buyer";
-            this.popular_buyer.UseVisualStyleBackColor = true;
             // 
             // popular_buyer_grid
             // 
             this.popular_buyer_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.popular_buyer_grid.Location = new System.Drawing.Point(0, 3);
+            this.popular_buyer_grid.Location = new System.Drawing.Point(0, 0);
             this.popular_buyer_grid.Name = "popular_buyer_grid";
             this.popular_buyer_grid.RowHeadersWidth = 51;
             this.popular_buyer_grid.RowTemplate.Height = 24;
